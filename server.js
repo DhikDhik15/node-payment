@@ -9,9 +9,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 
-const dbTransaction = require('./migrate/config/transactions');
-
-require('./routes/transactions');
+// call routes
+var routes = require('./routes/transactions');
+routes(app);
 require('./routes/auth')(app);
 
 app.listen(PORT, () => {
