@@ -20,3 +20,21 @@ exports.login = (req, res) => {
         data: config
     })
 }
+
+exports.verification = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const fullname = 'adhika putra sutrawan';
+
+    if (!authHeader) {
+        res.setHeader('adhika putra sutrawan', 'Basic');
+        return res.status(401).json({ message: 'Unauthorized' })
+    }
+
+    const credentials = Buffer.from(authHeader, 'base64').toString('ascii');
+
+    if (credentials == fullname) {
+        return res.status(200).json({ message: 'authorization', fullname})
+    } else {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+}
