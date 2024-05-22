@@ -16,26 +16,34 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Order ID</th>
-            <th scope="col">Amount</th>
-          </tr>
-        </thead>
-          <tbody>
-            {
-              posts.data?.map((data, index) => (             
-              <tr key={index}>
-                  <th scope="row">{index + 1}</th>
-                <td>{data.order_id}</td>
-                <td>{data.amount}</td>
-              </tr>
-              ))
-            }
-          </tbody>
-      </table>
+        <div class="container-md">  
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Order ID</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                  <tbody>
+                    {
+                      posts.data?.map((data, index) => (             
+                      <tr key={index}>
+                          <th scope="row">{index + 1}</th>
+                        <td>{data.order_id}</td>
+                          <td>{data.amount}</td>
+                          <td>Sukses</td>
+                      </tr>
+                      ))
+                    }
+                  </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
       </header>
     </div>
   );
