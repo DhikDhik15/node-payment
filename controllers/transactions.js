@@ -14,10 +14,10 @@ exports.add = (req, res) => {
             res.status(200).json({
                 data: data,
                 status: 'success'
-            }).catch((err) => {
-                res.status(500).json({
-                message: err
             })
+        }).catch((err) => {
+            res.status(500).json({
+            message: err
         })
     })
 }
@@ -26,7 +26,7 @@ exports.add = (req, res) => {
 exports.get = (req, res) => {
     transaction.findAll({
         attributes: [
-            'order_id','amount'
+            'id','order_id','amount'
         ]
     }).then((data) => {
         res.status(200).send({
@@ -58,6 +58,6 @@ exports.update = async (req, res) => {
     }).catch((err) => {
         res.status(500).json({
         message: err
-    })
+        })
     })
 }

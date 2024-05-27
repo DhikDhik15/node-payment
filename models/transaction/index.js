@@ -1,7 +1,7 @@
 'use strict';
 const dbConfig = require('../../config/sequelize/payment');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{ //set configure connection
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
     operatorAliases: false,
@@ -14,10 +14,12 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD,{
     }
 });
 
+// import configure sequelize
 const db = {}
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+// send params from configure to model
 db.payment = require('../transaction/transaction')(sequelize, Sequelize);
 
 module.exports = db;

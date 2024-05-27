@@ -7,7 +7,7 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 app.use(express.json());
-app.use(cors());
+app.use(cors()); //allow request HTTP from browser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}))
 
