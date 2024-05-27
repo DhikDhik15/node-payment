@@ -1,7 +1,5 @@
 'use strict';
 
-const nodeRsa = require('node-rsa');
-
 exports.login = (req, res) => {
     const fullname = 'adhika putra sutrawan';
     const base64Fullname = Buffer.from(fullname).toString('base64');
